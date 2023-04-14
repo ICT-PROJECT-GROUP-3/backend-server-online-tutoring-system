@@ -41,7 +41,7 @@ export default {
       type: 'number',
       validation: Rule => Rule.required(),
     },
-    {~
+    {
       name: 'location',
       title: 'Location',
       type: 'string',
