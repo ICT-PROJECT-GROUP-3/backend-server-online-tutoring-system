@@ -1,14 +1,16 @@
-export default{
+import {defineType, defineField, defineArrayMember} from 'sanity';
+
+export default defineType({
     name:"payments",
     title:"Payments",
     type:"document",
     fields:[
-        {
+        defineField({
             name:'amount',
             title:'Amount Paid',
             type:'number',
             validation: Rules => Rules.required(),
-        },
+        }),
         {
             name:'tutor',
             title:'Tutor',
@@ -16,7 +18,6 @@ export default{
             to:[{type:'tutor'}],
             validation: Rule => Rule.required(),
         },
-
         {
             name:'student',
             title:'Student',
@@ -33,8 +34,5 @@ export default{
 
         }],
         }
-
-    
-
     ]
-}
+});

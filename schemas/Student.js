@@ -1,36 +1,32 @@
-export default {
+import {defineType, defineField, defineArrayMember} from 'sanity'
+
+export default defineType({
   name: 'student',
-  title: 'Student',
+  title: 'student',
   type: 'document',
   fields: [
-    {
-      name: 'name',
-      title: 'Name',
-      type: 'string',
-      validation: Rule => Rule.required(),
-    },
-     {
+     defineField({
       name: 'first_name',
       title: 'First Name',
       type: 'string',
       validation: Rule => Rule.required(),
-    },
-     {
+    }),
+     defineField({
       name: 'last_name',
       title: 'Last Name',
       type: 'string',
       validation: Rule => Rule.required(),
-    },
-    {
+    }),
+     defineField({
       name: 'email',
       title: 'Email',
       type: 'string',
       validation: Rule => Rule.required(),
-    },
-    {
+    }),
+     defineField({
       name: 'phone',
       title: 'Phone Number',
       type: 'string',
-    },
+    }),
   ],
-};
+});
