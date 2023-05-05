@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "next-auth-sanity": "^1.4.11",
+    "next-sanity": "^4.3.2"
+  }
+}
