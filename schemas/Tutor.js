@@ -80,7 +80,7 @@ export default defineType({
     }),
     defineField({
       name: 'registration_date',
-      title: 'Total teaching experience',
+      title: 'Registration date',
       type: 'date',
     }),
     defineField({
@@ -142,7 +142,6 @@ export default defineType({
       name: 'weekly_availability',
       title: 'Weekly Availability',
       type: 'number',
-      validation: Rule => Rule.required(),
     }),
       defineField({
       name: 'time_slots',
@@ -159,7 +158,7 @@ export default defineType({
       name: 'certification_of_credentials',
       title: 'Certification Of Credentials',
       type: 'array',
-     of:[
+      of:[
             {
 
               type:'image'
@@ -181,12 +180,12 @@ export default defineType({
     }),
     defineField({
       name: 'maximum_number_of_sessions',
-      title: 'Maximum number of sessions',
+      title: 'Maximum number of sessions in a week',
       type: 'number',
       validation: Rule => Rule.required(),
     }),
     defineField({
-      name: 'phone',
+      name: 'phone_number',
       title: 'Phone Number',
       type: 'string',
     }),
