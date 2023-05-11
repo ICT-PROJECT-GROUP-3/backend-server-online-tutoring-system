@@ -8,7 +8,7 @@ import Grades from './Grade';
 import User from './user';
 import verificationToken from './verification-token';
 import Account from './Account';
-
+import Reviews from './Reviews';
 export const schemaTypes =
  [
     Lesson,
@@ -20,5 +20,6 @@ export const schemaTypes =
     Grades,
     User,
     verificationToken,
-    Account
+    Account,
+    Reviews
  ]

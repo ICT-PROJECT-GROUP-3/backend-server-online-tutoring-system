@@ -9,6 +9,62 @@ export default defineType({
       name: 'fullname',
       title: 'Full Name',
       type: 'string',
+    validation: Rule => Rule.required(),
+    }),
+     defineField({
+      name: 'bio',
+      title: 'bio',
+      type: 'array',
+      of:[
+        {
+          type:'block'
+        }
+      ],
+    validation: Rule => [ 
+        Rule.min(50).error("a bio of 50 characters is required"),
+        Rule.max(150).warning("A brief bio is preferred!"),
+    ]}),
+    defineField({
+      name:"tutor_reviews",
+      title:"Tutor reviews",
+      type:"array",
+      of: [
+        {
+          type:"reviews"
+        }
+      ]
+    }),
+     defineField({
+      name: 'price',
+      title: 'Price per session',
+      type: 'number',
+    }),
+    defineField({
+      name: 'can_travel',
+      title: 'Can Travel',
+      type: 'boolean',
+    }),
+    defineField({
+      name: 'Teaches_at_home',
+      title: 'Teaches at home',
+      type: 'boolean',
+    }),
+    
+     defineField({
+      name: 'platform',
+      title: 'Platform',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    }),
+    defineField({
+      name: 'languages',
+      title: 'Languages',
+      type: 'array',
+      of:[
+        {
+          type:"string"
+        }
+      ],
       validation: Rule => Rule.required(),
     }),
      defineField({
@@ -17,11 +73,26 @@ export default defineType({
       type: 'string',
       validation: Rule => Rule.required(),
     }),
+     defineField({
+      name: 'total_teaching_experience',
+      title: 'Total teaching experience',
+      type: 'number',
+    }),
+    defineField({
+      name: 'registration_date',
+      title: 'Total teaching experience',
+      type: 'date',
+    }),
     defineField({
       name: 'email',
       title: 'Email Address',
       type: 'string',
       validation: Rule => Rule.required(),
+    }),
+     defineField({
+      name: 'last_login',
+      title: 'Last login',
+      type: 'datetime',
     }),
      defineField({
       name: 'education_qualification',
@@ -79,7 +150,7 @@ export default defineType({
       type: 'array',
       of:[
           {
-            type:"Datetime"
+            type:"datetime"
           }
       ],
       validation: Rule => Rule.required(),
@@ -88,22 +159,12 @@ export default defineType({
       name: 'certification_of_credentials',
       title: 'Certification Of Credentials',
       type: 'array',
-      of:[
-          {
-            name:'certifications',
-            title:'Certifications',
-            type:"array",
-            of:[
+     of:[
             {
 
               type:'image'
             }
             ],
-            options: {
-              hotspot:true
-            }
-          }
-      ],
       validation: Rule => Rule.required(),
     }),
      defineField({
