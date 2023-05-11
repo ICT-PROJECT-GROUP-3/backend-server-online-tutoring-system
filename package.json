@@ -17,6 +17,7 @@
   "dependencies": {
     "@sanity/schema": "^3.8.3",
     "@sanity/vision": "^3.8.3",
+    "next-auth-sanity": "^1.4.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
