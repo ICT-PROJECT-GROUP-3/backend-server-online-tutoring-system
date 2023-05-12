@@ -1,1 +1,3 @@
-export const schemaTypes = []
+import tutor from "./tutor"
+
+export const schemaTypes = [tutor]
