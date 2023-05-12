@@ -14,17 +14,19 @@ export default defineType({
      defineField({
       name: 'bio',
       title: 'bio',
-      type: 'array',
+      type: 'block',
       of:[
         {
           type:'block'
         }
-      ],
-    validation: Rule => [ 
-        Rule.min(50).error("a bio of 50 characters is required"),
-        Rule.max(150).warning("A brief bio is preferred!"),
-    ]}),
+      ]
+    }),
     defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+     }),
+   defineField({
       name:"tutor_reviews",
       title:"Tutor reviews",
       type:"array",
@@ -193,14 +195,6 @@ export default defineType({
       name: 'date_of_birth',
       title: 'Date of birth',
       type: 'date',
-    }),
-
-    defineField({
-      name: 'subjects',
-      title: 'Subjects',
-      type: 'array',
-      of: [{type: 'string'}],
-      validation: Rule => Rule.required(),
     }),
   ],
 });
