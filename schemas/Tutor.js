@@ -14,7 +14,7 @@ export default defineType({
      defineField({
       name: 'bio',
       title: 'bio',
-      type: 'block',
+      type: 'array',
       of:[
         {
           type:'block'
@@ -195,6 +195,11 @@ export default defineType({
       name: 'date_of_birth',
       title: 'Date of birth',
       type: 'date',
+    }),
+    defineField({
+      title: 'Mock Video',
+      name: 'mock_video',
+      type: 'mux.video',
     }),
   ],
 });
