@@ -14,7 +14,7 @@ export default defineType({
      defineField({
       name: 'bio',
       title: 'bio',
-      type: 'block',
+      type: 'array',
       of:[
         {
           type:'block'
@@ -25,6 +25,11 @@ export default defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+     }),
+    defineField({
+      name: 'profile_picture',
+      title: 'Profile Picture',
+      type: 'image',
      }),
    defineField({
       name:"tutor_reviews",
@@ -41,6 +46,24 @@ export default defineType({
       title: 'Price per session',
       type: 'number',
     }),
+     defineField({
+      "title": "Tutor Video",
+      "name": "tutor_video",
+      "type": "mux.video",
+      validation: Rule => Rule.required().custom(video => {
+        if (video) {
+          if (video.status === 'ready') {
+            return true;
+          }
+          return 'The video must be in the "ready" status.';
+        }
+        return true;
+      }),
+      options: {
+      allowedResolutions: ['hd', 'sd'],
+      captions: true
+    },
+  }),
     defineField({
       name: 'can_travel',
       title: 'Can Travel',
@@ -51,8 +74,7 @@ export default defineType({
       title: 'Teaches at home',
       type: 'boolean',
     }),
-    
-     defineField({
+    defineField({
       name: 'platform',
       title: 'Platform',
       type: 'string',
@@ -102,7 +124,7 @@ export default defineType({
       type: 'array',
       of:[
           {
-            type:"string"
+            type:"file"
           }
       ],
       validation: Rule => Rule.required(),
@@ -173,6 +195,11 @@ export default defineType({
       title: 'Location',
       type: 'string',
       validation: Rule => Rule.required(),
+    }),
+    defineField({
+      title: 'GPS Coordinates',
+      name: 'geo_coordinates',
+      type: 'geopoint'
     }),
       defineField({
       name: 'session_duration',
