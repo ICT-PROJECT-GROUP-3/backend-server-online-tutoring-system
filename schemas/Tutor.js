@@ -163,7 +163,7 @@ export default defineType({
       of:[
             {
 
-              type:'image'
+              type:'file'
             }
             ],
       validation: Rule => Rule.required(),
@@ -201,5 +201,28 @@ export default defineType({
       name: 'mock_video',
       type: 'mux.video',
     }),
+     defineField({
+      title: 'Personal details',
+      name: 'identity',
+      type: 'array',
+      of:[
+        {
+          type:"file"
+        }
+      ]
+    }),
+     {
+      title: 'Profile Picture',
+      name: 'profile_picture',
+      type: 'file',
+      options: {
+         hotspot: true // <-- Defaults to false
+     },
+    },
+    //  defineField({
+    //   title: 'Mock Video',
+    //   name: 'mock_video',
+    //   type: 'mux.video',
+    // }),
   ],
 });
