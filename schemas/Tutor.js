@@ -211,18 +211,18 @@ export default defineType({
         }
       ]
     }),
-     {
+     defineField({
       title: 'Profile Picture',
       name: 'profile_picture',
       type: 'file',
       options: {
          hotspot: true // <-- Defaults to false
      },
-    },
-    //  defineField({
-    //   title: 'Mock Video',
-    //   name: 'mock_video',
-    //   type: 'mux.video',
-    // }),
+    }),
+     defineField({
+         title: 'Tutor Location',
+         name: 'geo_location',
+         type: 'geopoint'
+       }),
   ],
 });
