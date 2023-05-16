@@ -26,11 +26,6 @@ export default defineType({
       title: 'Slug',
       type: 'slug',
      }),
-    defineField({
-      name: 'profile_picture',
-      title: 'Profile Picture',
-      type: 'image',
-     }),
    defineField({
       name:"tutor_reviews",
       title:"Tutor reviews",
