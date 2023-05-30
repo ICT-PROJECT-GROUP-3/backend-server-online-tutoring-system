@@ -5,7 +5,7 @@ import slugify from 'some-off-the-shelf-slugifier'
 async function myAsyncSlugifier(input, schemaType, context) {
   const slug = slugify(input)
   const {getClient} = context
-  const client = getClient({apiVersion: '2022-12-07'})
+  const client = getClient({apiVersion: '2021-10-21'})
   const query = 'count(*[_type=="tutor" && slug.current == $slug]{_id})'
   const params = {slug: slug}
   return client.fetch(query, params).then((count) => {
