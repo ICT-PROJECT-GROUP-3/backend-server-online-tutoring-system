@@ -1,4 +1,19 @@
 import {defineType, defineField, defineArrayMember} from 'sanity'
+import {isUniqueAcrossAllDocuments} from '../lib/isUniqueAcrossAllDocuments'
+import slugify from 'some-off-the-shelf-slugifier'
+
+async function myAsyncSlugifier(input, schemaType, context) {
+  const slug = slugify(input)
+  const {getClient} = context
+  const client = getClient({apiVersion: '2021-10-21'})
+  const query = 'count(*[_type=="tutor" && slug.current == $slug]{_id})'
+  const params = {slug: slug}
+  return client.fetch(query, params).then((count) => {
+    console.log('Tutors with identical slug', count)
+    return `${slug}-${count + 1}`
+  })
+  return slug
+}
 
 export default defineType({
   name: 'tutor',
@@ -22,9 +37,19 @@ export default defineType({
       ]
     }),
     defineField({
-      name: 'slug',
       title: 'Slug',
+      name: 'slug',
       type: 'slug',
+      options: {
+        source: 'title',
+        slugify: myAsyncSlugifier,
+        isUnique: isUniqueAcrossAllDocuments
+      }
+    }),
+    defineField({
+      name: 'profile_picture',
+      title: 'Profile Picture',
+      type: 'image',
      }),
    defineField({
       name:"tutor_reviews",
