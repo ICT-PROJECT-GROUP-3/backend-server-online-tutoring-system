@@ -11,6 +11,12 @@ export default defineType({
             type:'number',
             validation: Rules => Rules.required(),
         }),
+          defineField({
+            name:'time',
+            title:'Payment time',
+            type:'datetime',
+            validation: Rules => Rules.required(),
+        }),
         {
             name:'tutor',
             title:'Tutor',

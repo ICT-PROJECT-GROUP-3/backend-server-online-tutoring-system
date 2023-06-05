@@ -28,9 +28,14 @@ export default {
     },
      {
       // this is only if you use credentials provider
-      name: 'account_type',
+      name: 'role',
+      title:'role',
       type: 'string',
-      hidden: true
+    },
+    {
+      name: 'refreshToken',
+      title: 'Refresh token',
+      type: 'string'
     },
      {
       // this is only if you use credentials provider

@@ -28,5 +28,19 @@ export default defineType({
       title: 'Phone Number',
       type: 'string',
     }),
+    defineField({
+            name:"tutor",
+            title:"tutor",
+            type:"reference",
+            to:[{type:"tutor"}],
+        },
+    ),
+    defineField({
+            name:"subject",
+            title:"subject",
+            type:"reference",
+            to:[{type:"subject"}],
+        },
+    ),
   ],
 });
