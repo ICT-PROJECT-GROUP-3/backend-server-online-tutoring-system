@@ -34,13 +34,15 @@ const ChatPage = () => {
 	}
 
 	return (
+		<div>
 		<ChatEngine
 			height='100vh'
-			userName='JohnDoe'
-			userSecret='1234567'
+			userName='BillyJoel'
+			userSecret='bill'
 			projectID={"0e9a66df-61c6-47d2-b4f0-0515eef04fe0"}
 			renderNewChatForm={(creds) => renderChatForm(creds)}
 		/>
+		</div>
 	)
 }
 
