@@ -1,5 +1,11 @@
 import {defineType, defineField, defineArrayMember} from 'sanity'
-
+// import SlugInput from 'sanity-plugin-better-slug';
+import { SlugInput } from 'sanity-plugin-prefixed-slug'
+import slugify from 'slugify';
+const slugifyOptions = {
+  lower: true, // Convert the slug to lowercase
+  remove: /[*+~.()'"!:@]/g, // Remove special characters from the slug
+};
 export default defineType({
   name: 'tutor',
   title: 'Tutor',
@@ -21,11 +27,25 @@ export default defineType({
         }
       ]
     }),
-    defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-     }),
+     defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      inputComponent: SlugInput, //Reference the SlugInput
+      options: {
+        //Change to schema title to automatically populate
+        source: "fullname",
+        //Use your URL
+        basePath: "https://online-tutoring-system-frontend.vercel.app",
+        maxLength: 30,
+        slugify: (input) =>
+          input.toLowerCase()
+          .replace(/\s+/g, "-").slice(0, 200),
+          //Remove special characters
+          // .replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ""),
+        validation: (Rule) => Rule.required(),
+      },
+    }),
    defineField({
       name:"tutor_reviews",
       title:"Tutor reviews",

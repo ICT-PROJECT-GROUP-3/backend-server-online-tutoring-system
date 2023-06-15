@@ -42,5 +42,12 @@ export default defineType({
             to:[{type:"subject"}],
         },
     ),
+      defineField({
+            name:"payments",
+            title:"payments",
+            type:"reference",
+            to:[{type:"payments"}],
+        },
+    ),
   ],
 });
