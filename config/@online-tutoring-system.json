@@ -1,0 +1,16 @@
+{
+  "webhooks": {
+    "endpoints": {
+      "/api/notify": {
+        "body": {
+          "query": `*[_type == "notification" && status == "sent"]`
+        },
+        "methods": ["post"],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "timeout": 30000
+      }
+    }
+  }
+}

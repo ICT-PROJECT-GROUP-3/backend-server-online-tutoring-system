@@ -23,25 +23,43 @@ export default {
     {
       // this is only if you use credentials provider
       name: 'password',
+      title:'Password',
       type: 'string',
-      hidden: true
     },
      {
       // this is only if you use credentials provider
       name: 'role',
       title:'role',
       type: 'string',
+       options: {
+        list: [
+          { title: 'Tutor', value: 'tutor' },
+          { title: 'Student', value: 'student' },
+          { title: 'Admin', value: 'admin' },
+          // Add more roles if needed
+        ]
+      },
+    },
+     {
+      name: 'tutor',
+      title: 'Tutor',
+      type: 'reference',
+      to: [{ type: 'tutor' }],
+      // Only show this field if the role is "tutor"
+      // hidden: ({ document }) => document && document.role !== 'tutor'
+    },
+    {
+      name: 'student',
+      title: 'Student',
+      type: 'reference',
+      to: [{ type: 'student' }],
+      // Only show this field if the role is "student"
+      // hidden: ({ document }) => document && document.role !== 'student'
     },
     {
       name: 'refreshToken',
       title: 'Refresh token',
       type: 'string'
     },
-     {
-      // this is only if you use credentials provider
-      name: 'confirmPassword',
-      type: 'string',
-      hidden: true
-    }
   ]
 };

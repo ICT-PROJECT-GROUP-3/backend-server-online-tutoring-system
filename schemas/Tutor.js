@@ -1,20 +1,11 @@
 import {defineType, defineField, defineArrayMember} from 'sanity'
-import {isUniqueAcrossAllDocuments} from '../lib/isUniqueAcrossAllDocuments'
-import slugify from 'some-off-the-shelf-slugifier'
-
-async function myAsyncSlugifier(input, schemaType, context) {
-  const slug = slugify(input)
-  const {getClient} = context
-  const client = getClient({apiVersion: '2021-10-21'})
-  const query = 'count(*[_type=="tutor" && slug.current == $slug]{_id})'
-  const params = {slug: slug}
-  return client.fetch(query, params).then((count) => {
-    console.log('Tutors with identical slug', count)
-    return `${slug}-${count + 1}`
-  })
-  return slug
-}
-
+// import SlugInput from 'sanity-plugin-better-slug';
+import { SlugInput } from 'sanity-plugin-prefixed-slug'
+import slugify from 'slugify';
+const slugifyOptions = {
+  lower: true, // Convert the slug to lowercase
+  remove: /[*+~.()'"!:@]/g, // Remove special characters from the slug
+};
 export default defineType({
   name: 'tutor',
   title: 'Tutor',
@@ -36,21 +27,25 @@ export default defineType({
         }
       ]
     }),
-    defineField({
-      title: 'Slug',
-      name: 'slug',
-      type: 'slug',
+     defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      inputComponent: SlugInput, //Reference the SlugInput
       options: {
-        source: 'title',
-        slugify: myAsyncSlugifier,
-        isUnique: isUniqueAcrossAllDocuments
-      }
+        //Change to schema title to automatically populate
+        source: "fullname",
+        //Use your URL
+        basePath: "https://online-tutoring-system-frontend.vercel.app",
+        maxLength: 30,
+        slugify: (input) =>
+          input.toLowerCase()
+          .replace(/\s+/g, "-").slice(0, 200),
+          //Remove special characters
+          // .replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ""),
+        validation: (Rule) => Rule.required(),
+      },
     }),
-    defineField({
-      name: 'profile_picture',
-      title: 'Profile Picture',
-      type: 'image',
-     }),
    defineField({
       name:"tutor_reviews",
       title:"Tutor reviews",
