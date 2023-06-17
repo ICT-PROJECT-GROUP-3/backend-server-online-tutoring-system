@@ -12,9 +12,26 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'fullname',
-      title: 'Full Name',
+      name: 'name',
+      title: ' Name',
       type: 'string',
+    
+    }),
+    //   defineField({
+    //   name: 'last_name',
+    //   title: 'Last Name',
+    //   type: 'string',
+    
+    // }),
+    defineField({
+      name: 'subjects',
+      title: 'subjects',
+      type: 'array',
+      of:[
+        {
+          type:'subject'
+        }
+      ]
     
     }),
      defineField({
@@ -236,3 +253,6 @@ export default defineType({
        }),
   ],
 });
+
+
+

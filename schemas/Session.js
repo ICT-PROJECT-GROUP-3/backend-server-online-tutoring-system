@@ -2,15 +2,21 @@ import {defineType, defineField, defineArrayMember} from 'sanity';
 
 export default defineType({
   name: 'session',
-  title: 'Tutoring Session',
+  title: 'session',
   type: 'document',
   fields: [
+     {
+      name: 'session',
+      title: 'session',
+      type: 'string'
+      // validation: Rule => Rule.required(),
+    },
     {
       name: 'student',
-      title: 'Student',
-      type: 'reference',
-      to: [{type: 'student'}],
-      validation: Rule => Rule.required(),
+      title: 'student',
+      type: 'array',
+      of: [{type: 'student'}],
+      // validation: Rule => Rule.required(),
     },
     {
       name: 'tutor',
@@ -57,3 +63,14 @@ export default defineType({
     }),
   ],
 });
+// Query the session schema to display students under a specified tutor
+//  *[_type == 'session' && tutor._ref == '50de3459-42cd-472b-b6d4-ab23d0610e15'].student[]{first_name,last_name}
+
+// Query the session schema to display the number of sessions the tutor has: 
+// count(*[_type == 'session' && tutor._ref == '50de3459-42cd-472b-b6d4-ab23d0610e15'])  
+
+// Query the session to retrieve the subjects taught by the tutor:
+//  *[_type == 'session' && tutor._ref == '50de3459-42cd-472b-b6d4-ab23d0610e15'].subject->{subject}
+
+// Query the session schema to retrieve the number of students:
+//  count(*[_type == 'session' && tutor._ref == '50de3459-42cd-472b-b6d4-ab23d0610e15'].student[]{first_name,last_name})

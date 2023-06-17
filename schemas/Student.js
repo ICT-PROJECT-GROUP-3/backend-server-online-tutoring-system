@@ -9,19 +9,19 @@ export default defineType({
       name: 'first_name',
       title: 'First Name',
       type: 'string',
-      validation: Rule => Rule.required(),
+      // validation: Rule => Rule.required(),
     }),
      defineField({
       name: 'last_name',
       title: 'Last Name',
       type: 'string',
-      validation: Rule => Rule.required(),
+      // validation: Rule => Rule.required(),
     }),
      defineField({
       name: 'email',
       title: 'Email',
       type: 'string',
-      validation: Rule => Rule.required(),
+      // validation: Rule => Rule.required(),
     }),
      defineField({
       name: 'phone',
@@ -31,8 +31,8 @@ export default defineType({
     defineField({
             name:"tutor",
             title:"tutor",
-            type:"reference",
-            to:[{type:"tutor"}],
+            type:"array",
+            of:[{type:"tutor"}],
         },
     ),
     defineField({

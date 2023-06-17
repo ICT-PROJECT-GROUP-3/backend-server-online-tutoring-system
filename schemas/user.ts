@@ -1,4 +1,9 @@
 // user - required
+export const roles = {
+  tutor:'tutor',
+  admin:'admin',
+  student:'student'
+};
 
 export default {
   name: 'user',
@@ -33,9 +38,9 @@ export default {
       type: 'string',
        options: {
         list: [
-          { title: 'Tutor', value: 'tutor' },
-          { title: 'Student', value: 'student' },
-          { title: 'Admin', value: 'admin' },
+          { title: 'Tutor', value: roles.tutor, type:'tutor' },
+          { title: 'Student', value: roles.student, type:'student' },
+          { title: 'Admin', value: roles.admin, type:'admin' },
           // Add more roles if needed
         ]
       },
