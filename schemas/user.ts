@@ -23,7 +23,10 @@ export default {
     {
       name: 'image',
       title: 'Image',
-      type: 'url'
+      type: 'image',
+      options:{
+          hotspot:true,
+        }
     },
     {
       // this is only if you use credentials provider

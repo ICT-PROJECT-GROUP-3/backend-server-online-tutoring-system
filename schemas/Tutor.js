@@ -40,7 +40,7 @@ export default defineType({
       type: 'array',
       of:[
         {
-          type:'block'
+          type:'string'
         }
       ]
     }),

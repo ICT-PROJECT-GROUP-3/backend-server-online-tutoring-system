@@ -17,6 +17,17 @@ export default defineType({
       type: 'string',
       // validation: Rule => Rule.required(),
     }),
+    //  defineField({
+    //   name: 'number_of_sessions',
+    //   title: 'Number Of Sessions',
+    //   type: 'array',
+    //   of:[
+    //     {
+    //       type:''
+    //     }
+    //   ]
+    //   // validation: Rule => Rule.required(),
+    // }),
      defineField({
       name: 'email',
       title: 'Email',
@@ -33,13 +44,6 @@ export default defineType({
             title:"tutor",
             type:"array",
             of:[{type:"tutor"}],
-        },
-    ),
-    defineField({
-            name:"subject",
-            title:"subject",
-            type:"reference",
-            to:[{type:"subject"}],
         },
     ),
       defineField({

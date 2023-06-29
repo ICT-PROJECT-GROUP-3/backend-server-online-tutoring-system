@@ -9,7 +9,8 @@ import User from './user';
 import verificationToken from './verification-token';
 import Account from './Account';
 import Reviews from './Reviews';
-import Notifications from './Notifications'
+import Notifications from './Notifications';
+import Recommendations from './Recommendations';
 export const schemaTypes =
  [
     Lesson,
@@ -23,5 +24,6 @@ export const schemaTypes =
     verificationToken,
     Account,
     Reviews,
-    Notifications
+    Notifications,
+    Recommendations
  ]

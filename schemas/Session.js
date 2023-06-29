@@ -14,8 +14,13 @@ export default defineType({
     {
       name: 'student',
       title: 'student',
-      type: 'array',
-      of: [{type: 'student'}],
+      type: 'reference',
+      to:[
+        {
+          type:'student'
+        }
+      ]
+      
       // validation: Rule => Rule.required(),
     },
     {
@@ -74,3 +79,13 @@ export default defineType({
 
 // Query the session schema to retrieve the number of students:
 //  count(*[_type == 'session' && tutor._ref == '50de3459-42cd-472b-b6d4-ab23d0610e15'].student[]{first_name,last_name})
+
+
+
+/*
+*[_type == 'session' && tutor._ref == "9d11251a-60c3-431e-8763-38fbfa9acf4a"] {
+  'studentRef': student._ref,
+  'firstName': student->first_name
+}
+
+*/

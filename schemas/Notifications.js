@@ -37,11 +37,6 @@ export default defineType({
             },
             initialValue: 'sent',
          }),
-        defineField({
-            name:"image",
-            title:"image",
-            type:"image",
-        }),  
         {
             name:"message",
             title:"message",
