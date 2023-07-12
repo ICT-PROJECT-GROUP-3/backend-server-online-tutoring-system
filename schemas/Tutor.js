@@ -1,3 +1,29 @@
+/**
+
+    Represents a tutor.
+    @typedef {Object} Tutor
+    @property {string} name - The name of the tutor.
+    @property {string} title - The title of the tutor.
+    @property {string} type - The type of the tutor.
+    @property {TutorField[]} fields - The fields associated with the tutor.
+    */
+
+/**
+
+    Represents a field in the tutor.
+    @typedef {Object} TutorField
+    @property {string} name - The name of the field.
+    @property {string} title - The title of the field.
+    @property {string} type - The type of the field.
+    @property {Function} validation - The validation function for the field.
+    */
+
+/**
+
+    Defines a tutor object.
+    @param {Tutor} tutor - The tutor object to define.
+    @returns {Tutor} - The defined tutor object.
+    */
 import {defineType, defineField, defineArrayMember} from 'sanity'
 // import SlugInput from 'sanity-plugin-better-slug';
 import { SlugInput } from 'sanity-plugin-prefixed-slug'

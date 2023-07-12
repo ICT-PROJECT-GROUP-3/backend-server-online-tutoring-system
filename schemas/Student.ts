@@ -1,3 +1,30 @@
+/**
+
+    Represents a student.
+    @typedef {Object} Student
+    @property {string} name - The name of the student.
+    @property {string} title - The title of the student.
+    @property {string} type - The type of the student.
+    @property {StudentField[]} fields - The fields associated with the student.
+    */
+
+/**
+
+    Represents a field in the student.
+    @typedef {Object} StudentField
+    @property {string} name - The name of the field.
+    @property {string} title - The title of the field.
+    @property {string} type - The type of the field.
+    @property {Function} validation - The validation function for the field.
+    */
+
+/**
+
+    Defines a student object.
+    @param {Student} student - The student object to define.
+    @returns {Student} - The defined student object.
+    */
+
 import {defineType, defineField, defineArrayMember} from 'sanity'
 
 export default defineType({
@@ -43,7 +70,11 @@ export default defineType({
             name:"tutor",
             title:"tutor",
             type:"array",
-            of:[{type:"tutor"}],
+            of:[
+              {
+                type:"reference",
+                to:[{type:"tutor"}]
+            }],
         },
     ),
       defineField({

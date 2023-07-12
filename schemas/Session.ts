@@ -1,3 +1,30 @@
+/**
+
+    Represents a session.
+    @typedef {Object} Session
+    @property {string} name - The name of the session.
+    @property {string} title - The title of the session.
+    @property {string} type - The type of the session.
+    @property {SessionField[]} fields - The fields associated with the session.
+    */
+
+/**
+
+    Represents a field in the session.
+    @typedef {Object} SessionField
+    @property {string} name - The name of the field.
+    @property {string} title - The title of the field.
+    @property {string} type - The type of the field.
+    @property {Function} validation - The validation function for the field.
+    */
+
+/**
+
+    Defines a session object.
+    @param {Session} session - The session object to define.
+    @returns {Session} - The defined session object.
+    */
+
 import {defineType, defineField, defineArrayMember} from 'sanity';
 
 export default defineType({

@@ -1,3 +1,29 @@
+/**
+
+    Represents a recommendation.
+    @typedef {Object} Recommendation
+    @property {string} name - The name of the recommendation.
+    @property {string} title - The title of the recommendation.
+    @property {string} type - The type of the recommendation.
+    @property {RecommendationField[]} fields - The fields associated with the recommendation.
+    */
+
+/**
+
+    Represents a field in the recommendation.
+    @typedef {Object} RecommendationField
+    @property {string} name - The name of the field.
+    @property {string} title - The title of the field.
+    @property {string} type - The type of the field.
+    @property {Function} validation - The validation function for the field.
+    */
+
+/**
+
+    Defines a recommendation object.
+    @param {Recommendation} recommendation - The recommendation object to define.
+    @returns {Recommendation} - The defined recommendation object.
+    */
 import {defineType, defineField, defineArrayMember} from 'sanity'
 
 export default defineType({

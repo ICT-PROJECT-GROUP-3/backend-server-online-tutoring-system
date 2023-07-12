@@ -15,6 +15,12 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "config/@sanity/google-maps-input.js"],
+    "typedocOptions": {
+    "out": "docs",
+    "entryPoints": ["./schemas"],
+    "exclude": ["**/*.spec.ts"],
+    "theme": "default"
+  },
+  "include": ["**/*.ts","**/*.js", "**/*.tsx", "config/@sanity/google-maps-input.js", "schemas/Tutor.js"],
   "exclude": ["node_modules"]
 }

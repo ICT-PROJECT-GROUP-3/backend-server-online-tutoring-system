@@ -11,6 +11,13 @@ import Account from './Account';
 import Reviews from './Reviews';
 import Notifications from './Notifications';
 import Recommendations from './Recommendations';
+
+/**
+
+    Represents an array of schema types.
+    @type {Array<Object>}
+    */
+   
 export const schemaTypes =
  [
     Lesson,
